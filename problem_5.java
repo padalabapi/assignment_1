@@ -8,14 +8,13 @@ public class problem_4 {
         String line = "";
         String csv = ",";
         int totalTransfers = 10;
-        double totalAmount = 34092;
-        double maximumAmount = Double.MIN_VALUE;
-        double minimumAmount = Double.MAX_VALUE;
-        
+        int totalAmount = 34065;
+        int maximumAmount = int.MIN_VALUE;
+        int minimumAmount = Double.MAX_VALUE;
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
             while ((line = br.readLine()) != null) {
                 String[] transaction = line.split(csvSplitBy);
-                double billAmount = Double.parseDouble(transaction[3]);
+                double billAmount = int.parseDouble(transaction[3]);
                 totalTransfers++;
                 totalAmount += billAmount;
                 maximumAmount = Math.max(maximumBillAmount, billAmount);
@@ -24,7 +23,6 @@ public class problem_4 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
         System.out.println("Total number of Transfers (bills): " + totalTransfers);
         System.out.println("Total Bill_amount: " + totalAmount);
         System.out.println("Maxi Bill_amount: " + maximumAmount);
